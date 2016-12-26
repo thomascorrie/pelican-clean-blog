@@ -1,5 +1,5 @@
 {% if GOOGLE_ANALYTICS %}
-    <script type="text/javascript">
+<script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '{{GOOGLE_ANALYTICS}}']);
     _gaq.push(['_trackPageview']);
@@ -8,10 +8,10 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-    </script>
+</script>
 {% endif %}
 {% if GAUGES %}
-    <script type="text/javascript">
+<script type="text/javascript">
     var _gauges = _gauges || [];
     (function() {
         var t   = document.createElement('script');
@@ -23,24 +23,24 @@
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(t, s);
     })();
-    </script>
+</script>
 {% endif %}
 {% if PIWIK_URL and PIWIK_SITE_ID %}
-    <script type="text/javascript">
+<script type="text/javascript">
     {% if PIWIK_SSL_URL %}
-        var pkBaseURL = "{{ PIWIK_SSL_URL }}";
-    {% else %}
-        var pkBaseURL = "{{ PIWIK_URL }}";
-    {% endif %}
-    var _paq = _paq || [];
-    _paq.push(["trackPageView"]);
-    _paq.push(["enableLinkTracking"]);
-    (function() {
-        var u=(("https:" == document.location.protocol) ? "https" : "http")+"://"+pkBaseURL+"/";
-        _paq.push(["setTrackerUrl", u+"piwik.php"]);
-        _paq.push(["setSiteId", "{{ PIWIK_SITE_ID }}"]);
-        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-    })();
-    </script>
+    var pkBaseURL = "{{ PIWIK_SSL_URL }}";
+     {% else %}
+     var pkBaseURL = "{{ PIWIK_URL }}";
+      {% endif %}
+      var _paq = _paq || [];
+       _paq.push(["trackPageView"]);
+       _paq.push(["enableLinkTracking"]);
+       (function() {
+           var u=(("https:" == document.location.protocol) ? "https" : "http")+"://"+pkBaseURL+"/";
+           _paq.push(["setTrackerUrl", u+"piwik.php"]);
+           _paq.push(["setSiteId", "{{ PIWIK_SITE_ID }}"]);
+           var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+           g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+       })();
+</script>
 {% endif %}
