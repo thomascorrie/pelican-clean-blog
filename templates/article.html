@@ -103,7 +103,7 @@
                             <div class="post-heading">
                                 <h1>{{ article.title }}</h1>
                                 {% if article.headline %}
-                                <h3 class="subheading">{{ article.headline }}</h3>
+                                <span class="meta">{{ article.headline }}</span>
                                 {% endif %}
                                 <!-- <span class="meta">Posted by
 {% for author in article.authors %}
@@ -126,6 +126,9 @@ on {{ article.locale_date }}
             {% block content %}
             <!-- Post Content -->
             <article>
+                {{ article.locale_date }}
+                {% if article.modified %} | Updated on {{ article.locale_modified }}
+                {% endif %}
                 {{ article.content }}
             </article>
 
